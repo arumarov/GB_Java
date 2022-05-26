@@ -1,6 +1,3 @@
-package Task_1_Seminar;
-
-
 
 /**
  * Task_1_Seminar
@@ -34,20 +31,33 @@ public class Task_1_Seminar {
 
     public static double calculatePow(double a, double b) {
         double result = 1;
-        if (a==1 || b == 0) {
-            return 1;
+        if (a==0 || a == 1) {
+            return a;
         }
-        if (a==0) {
-            return 0;
+        if (b==0) {
+            return 1;
         }
         if (b < 0) {
             a = 1/a;
             b = -b;
         }
 
-        for(int i = 0; i < b; i++){
+        for(int i = 0; i < b; i++){ 
             result *= a;
         }
+        // в случае, если b будет большим числом, программе придется выполнить очень много операций
+
         return result;
     }
+    // пишем рекурсивную степень, чтобы вместо n операций выполнять log(n) операций
+    public static double powRec(double a, int b){
+        if (b == 0){
+            return 1;
+        }
+
+        if (b < 0){
+            
+        }
+    }
 }
+
