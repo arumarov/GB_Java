@@ -14,25 +14,43 @@
  */
 
 // Мое решение (только для команды к1)
+// public class Task_2_Seminar {
+
+//     public static void main(String[] args) {
+//         System.out.println(task2(1, 7, 2, 1));
+//     }
+
+//     public static String task2(int a, int b, int c, int d) {
+//         String result = "";
+//         if (a >= b) {
+//             result = "нет решения";
+//         } else {
+//             while (a < b && a != b) {
+//                 a += c;
+//                 result = result + "k1 ";
+//             }
+
+//         }
+//         return result;
+//     }
+// }
+
+// Начало решения с семинара
 public class Task_2_Seminar {
-
     public static void main(String[] args) {
-        System.out.println(task2(1, 7, 2, 1));
+        generate(1, 7, 1, 3, "");
     }
-
-    public static String task2(int a, int b, int c, int d) {
-        String result = "";
-        if (a >= b) {
-            result = "нет решения";
-        } else {
-            while (a < b && a != b) {
-                a += c;
-                result = result + "k1 ";
-            }
-
+    
+    public static void generate(int source, int target, int c, int d, String path){
+        if (source > target) return; // так как функция void, можно закончить цепочку, просто выйдя из нее
+        if (source == target){
+            System.out.println(path);
+            return;
         }
-        return result;
-    }
-}
 
-//
+        generate(source+c, target, c, d, path + " k1");
+        generate(source*d, target, c, d, path + " k2");
+
+    }
+    
+}
