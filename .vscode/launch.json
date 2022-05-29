@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Seminar_4_Homework",
+            "request": "launch",
+            "mainClass": "Seminar_4_Homework",
+            "projectName": "01.Java_projects_847e2a22"
+        },
+        {
+            "type": "java",
             "name": "Launch Seminar_3_Homework",
             "request": "launch",
             "mainClass": "Seminar_3_Homework",
