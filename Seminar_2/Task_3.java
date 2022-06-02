@@ -28,3 +28,22 @@ package Seminar_2;
 
 
 // Решение с семинара
+
+public class Task_3 {
+    public static void main(String[] args) {
+        String s = "abcba";
+        System.out.println(isPalidrome(s)); 
+    }
+
+    public static boolean isPalidrome(String str) {
+        boolean result = true;
+        int last = str.length();
+        int mid = last/2;
+        for (int i = 0; i < mid; i++) {
+        if(str.charAt(i) != str.charAt(last - 1 - i)){
+        return false;
+        }
+        }
+        return result;
+        }
+    }
