@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
         "Seminar_1_Homework",
-        "Task_1_Seminar"
+        "Task_1_Seminar",
+        "."
     ]
 }
