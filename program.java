@@ -1,18 +1,29 @@
-public class program {
-  public static void main(String[] args) {
-    System.out.println(mergeAlternately("ab", "pqrs"));
-  }
+// import java.util.ArrayList;
+// import java.util.List;
 
-  public static String mergeAlternately(String word1, String word2) {
-    String merged = "";
-    int min = word1.length() < word2.length() ? word1.length() : word2.length();
-    String maxString = word1.length() < word2.length() ? word2 : word1;
-    for (int i = 0; i < min; i++) {
-      char ch1 = word1.charAt(i);
-      char ch2 = word2.charAt(i);
-      merged = merged + ch1 + ch2;
-    }
-    return merged + maxString.substring(min, maxString.length());
-
-  }
-}
+// class program {
+//   List<Integer> path = new ArrayList<>();
+//   List<List<Integer>> ans = new ArrayList<>();
+  
+//   public List<List<Integer>> combine(int n, int k) {
+//       comb(n, k, 0, 1);
+//       return ans;
+//   }
+  
+//   void comb(int n, int k, int index, int number) {
+//       if (index == k) {
+//           ans.add(new ArrayList<>(path));
+//           return;
+//       }
+      
+//       if (number > n) {
+//           return;
+//       }
+      
+//       for (int i = number; i <= n; i++) {
+//           patn.add(i);
+//           comb(n, k, index + 1, i + 1);
+//           path.remove(path.size() - 1);
+//       }
+//   }
+// }
