@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Seminar_3_Homework_Leetcode_1",
+            "request": "launch",
+            "mainClass": "Seminar_3.Seminar_3_Homework_Leetcode_1",
+            "projectName": "01.Java_projects_847e2a22"
+        },
+        {
+            "type": "java",
+            "name": "Launch Leetcode_1",
+            "request": "launch",
+            "mainClass": "Seminar_3_Homework.Leetcode_1",
+            "projectName": "01.Java_projects_847e2a22"
+        },
+        {
+            "type": "java",
             "name": "Launch Task_5",
             "request": "launch",
             "mainClass": "Seminar_2.Task_5",

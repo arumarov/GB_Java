@@ -1,29 +1,22 @@
-// import java.util.ArrayList;
-// import java.util.List;
+// package Lesson_07.Ex001;
 
-// class program {
-//   List<Integer> path = new ArrayList<>();
-//   List<List<Integer>> ans = new ArrayList<>();
-  
-//   public List<List<Integer>> combine(int n, int k) {
-//       comb(n, k, 0, 1);
-//       return ans;
-//   }
-  
-//   void comb(int n, int k, int index, int number) {
-//       if (index == k) {
-//           ans.add(new ArrayList<>(path));
-//           return;
-//       }
-      
-//       if (number > n) {
-//           return;
-//       }
-      
-//       for (int i = number; i <= n; i++) {
-//           patn.add(i);
-//           comb(n, k, index + 1, i + 1);
-//           path.remove(path.size() - 1);
-//       }
-//   }
-// }
+public class program {
+    // 2. Описываем метод, считающий расстояние
+    static double distance(int x1, int y1, int x2, int y2) {
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    }
+
+    // 1. Описываем подход, в котором есть 4 координаты
+    public static void main(String[] args) {
+
+        int ax = 0;
+        int ay = 0;
+        int bx = 0;
+        int by = 1;
+        // 3. Вызываем метод
+        System.out.println(distance(ax, ay, bx, by));
+        // Создать точку 
+        // Печать точки
+    }
+
+}

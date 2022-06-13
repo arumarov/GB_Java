@@ -1,3 +1,5 @@
+package Seminar_1_Homework;
+
 public class Seminar_2_Homework {
     public static void main(String[] args) {
         System.out.println(subtractProductAndSum(234));
