@@ -1,44 +1,83 @@
-import java.util.Arrays;
- 
-public class program {
-    public static void main(String[] args) {
-        int[] array1 = { 8, 0, -3, 5, 6, 9, 8, -4, 2, -99, 43 };
-        int[] result = mergesort(array1);
-        System.out.println(Arrays.toString(result));
+import java.util.LinkedList;
+import java.util.Queue;
+
+class node
+{
+    int x, y, distance;
+
+    node(int x, int y, int dist)
+    {
+        this.x = x;
+        this.y = y;
+        this.distance = dist;
     }
- 
-    public static int[] mergesort(int[] array1) {
-        int[] part1 = Arrays.copyOf(array1, array1.length);
-        int[] part2 = new int[array1.length];
-        int[] result = mergesortInner(part1, part2, 0, array1.length);
-        return result;
+}
+
+public class program
+{
+    static int M = 5;
+    static int N = 5;
+
+    static boolean isValid(int mat[][], boolean visited[][], int row, int col)
+    {
+        return ((row >= 0) && (row < M)) && ((col >= 0) && (col < N)) && (mat[row][col] == 1) && (!visited[row][col]);
     }
- 
-    public static int[] mergesortInner(int[] part1, int[] part2,
-            int startIndex, int endIndex) {
-        if (startIndex >= endIndex - 1) {
-            return part1;
+
+    private static void bfs(int matrix[][], int i, int j, int x, int y)
+    {
+        int row[] =
+        { -1, 0, 0, 1 };
+        int col[] =
+        { 0, -1, 1, 0 };
+
+        boolean[][] visited = new boolean[M][N];
+        Queue<node> q = new LinkedList<node>();
+        visited[i][j] = true;
+        q.add(new node(i, j, 0));
+        int minimum_distance = Integer.MAX_VALUE;
+        while (!q.isEmpty())
+        {
+            node node = q.poll();
+            i = node.x;
+            j = node.y;
+            int dist = node.distance;
+            if (i == x && j == y)
+            {
+                minimum_distance = dist;
+                break;
+            }
+
+            for (int k = 0; k < 4; k++)
+            {
+                if (isValid(matrix, visited, i + row[k], j + col[k]))
+                {
+                    visited[i + row[k]][j + col[k]] = true;
+                    node n = new node(i + row[k], j + col[k], dist + 1);
+                    q.add(n);
+                }
+            }
         }
-        
-        int middle = startIndex + (endIndex - startIndex) / 2;
-        int[] sorted1 = mergesortInner(part1, part2, startIndex, middle);
-        int[] sorted2 = mergesortInner(part1, part2, middle, endIndex);
-        
-        // Слияние
-        int index1 = startIndex;
-        int index2 = middle;
-        int destIndex = startIndex;
-        int[] result = sorted1 == part1 ? part2 : part1;
-        while (index1 < middle && index2 < endIndex) {
-            result[destIndex++] = sorted1[index1] < sorted2[index2]
-                    ? sorted1[index1++] : sorted2[index2++];
+
+        if (minimum_distance == Integer.MAX_VALUE)
+        {
+            System.out.print("Destination cannot be reached");
         }
-        while (index1 < middle) {
-            result[destIndex++] = sorted1[index1++];
+        else
+        {
+            System.out.print("The shortest path has length " + minimum_distance);
         }
-        while (index2 < endIndex) {
-            result[destIndex++] = sorted2[index2++];
-        }
-        return result;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] matrix =
+        {
+                { 1, 0, 1, 1, 1 },
+                { 1, 0, 1, 0, 1 },
+                { 1, 1, 1, 0, 1 },
+                { 0, 0, 0, 0, 1 },
+                { 1, 1, 1, 0, 1 },
+                { 1, 1, 0, 0, 0 } };
+        bfs(matrix, 0, 0, 3, 4);
     }
 }
